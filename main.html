@@ -1,0 +1,173 @@
+{%extends "layout.html"%}
+{%block content%}
+
+<section class="content-header p-2">
+    <div class="contet">
+        <!-- container full page untuk menampung content -->
+        <div class="container-fluid">
+            <!-- judul halaman -->
+            <div class="row">
+                <!-- Tabel Data -->
+                <div class="col-lg-12">
+                    <div class="row mb-2">
+                        <div class="col text-left">
+                            <h3>Master Factor problem</h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <!-- card header -->
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-xs-1 ml-4">
+                                    <label class="col-form-label font-weight-bold">Company ID</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <!-- <label class="col-form-label font-weight-bold">Company ID</label> -->
+                                    <select id="item_company_id" class="form-control">
+                                        {% for i in range(3) %}
+                                        <option value="">#</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-xs-1 ml-4">
+
+                                    <label class="col-form-label font-weight-bold ">Status</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <select id="item_status" class="form-control mr-3">
+                                        {% for i in range(3) %}
+                                        <option value="">#</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-xs-1 ml-4">
+                                    <label class="col-form-label font-weight-bold ">Devisi</label>
+                                </div>
+                                <div class="col-md-2 ">
+                                    <select id="item_devisi" class="form-control mr-3">
+                                        {% for i in range(3) %}
+                                        <option value="">#</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- card body -->
+                        <div class="card-body table-responsive">
+                            <!-- buttom tambah -->
+                            <div class="text-right form-action mb-2" style="padding-right: 16.8px;">
+                                <button id="btn_tambah_modal" type="button" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#addDataProblemByDivisi">
+                                    <span class="fa fa-plus-circle">&nbsp;</span>
+                                    <span>TAMBAH</span>
+                                </button>
+                            </div>
+                            <!-- table -->
+                            <table class="table table-head-fixed table-striped text-nowrap table-bordered">
+                                <thead>
+                                    <th class="text-center" style="width: 5%;"> Kode </th>
+                                    <th class="text-center" style="width: 20%;"> Factor Description </th>
+                                    <th class="text-center" style="width: 5%;"> Cabang </th>
+                                    <th class="text-center" style="width: 5%;"> Ho </th>
+                                    <th class="text-center" style="width: 5%;"> Call Center </th>
+                                    <th class="text-center" style="width: 15%;"> Date Create </th>
+                                    <th class="text-center" style="width: 15%;"> Date Update </th>
+                                    <th class="text-center" style="width: 10%;"> User ID </th>
+                                    <th class="text-center" style="width: 5%;"> Active </th>
+                                    <th class="text-center" style="width: 5%;"> Action </th>
+                                </thead>
+                                <tbody id="table_master_factorProblemByDivisi_body" class="align-middle text-center">
+                                    <!-- data dummy  -->
+                                    {% for i in range(1,4) %}
+                                    <tr>
+                                        <td>{{ i }}</td>
+                                        <td>hardware</td>
+                                        <td>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    style="display: inline-block" id=# checked>
+                                                <label class="custom-control-label" style="margin-right:-6px"
+                                                    for=#></label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    style="display: inline-block" id=# checked>
+                                                <label class="custom-control-label" style="margin-right:-6px"
+                                                    for=#></label>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    style="display: inline-block" id=# checked>
+                                                <label class="custom-control-label" style="margin-right:-6px"
+                                                    for=#></label>
+                                            </div>
+                                        </td>
+
+                                        <td>11 Januari 2019</td>
+                                        <td>11 Januari 2019</td>
+                                        <td>{{ i }}111{{ i+24 }}11{{ i +5}}1111</td>
+                                        <td>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    style="display: inline-block" id=# checked>
+                                                <label class="custom-control-label" style="margin-right:-6px"
+                                                    for=#></label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-warning" data-toggle="modal"
+                                                data-target="#exampleModal">
+                                                <span class="fa fa-edit"></span>
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal Formulir Tambah Data problem by divisi -->
+        <div class="modal fade" id="addDataProblemByDivisi" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="addDataProblemByDivisiLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addDataProblemByDivisiLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</section>
+
+{%endblock content%}
+
+{% block script %}
+
+<script>
+   
+
+
+</script>
+{% endblock script %}
